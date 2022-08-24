@@ -1,4 +1,4 @@
-import { IsBoolean, isString, IsString, MinLength } from 'class-validator';
+import { IsString, MinLength } from 'class-validator';
 
 export class CreateCarDto {
   @IsString()
