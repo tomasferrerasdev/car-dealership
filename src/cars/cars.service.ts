@@ -9,23 +9,7 @@ import { UpdateCarDto, CreateCarDto } from './dto';
 
 @Injectable()
 export class CarsService {
-  private cars: Car[] = [
-    {
-      id: uuid(),
-      brand: 'Dodge',
-      model: 'challenger',
-    },
-    {
-      id: uuid(),
-      brand: 'Jeep',
-      model: 'Cherokee',
-    },
-    {
-      id: uuid(),
-      brand: 'Ford',
-      model: 'Gran torino',
-    },
-  ];
+  private cars: Car[] = [];
 
   findAll() {
     return this.cars;
@@ -75,5 +59,9 @@ export class CarsService {
   delete(id: string) {
     const car = this.findOneById(id);
     this.cars = this.cars.filter((car) => car.id !== id);
+  }
+
+  fillCarsWithSeedData(cars: Car[]) {
+    this.cars = cars;
   }
 }
